@@ -157,6 +157,7 @@ h4 {
     color: rgb(255, 255, 255);
 }
 
-footer {color: #8ec5fc;}
+footer {color: #8ec5fc;
+text-align: center;}
 
 .footer_link {color: #dcadff;}
