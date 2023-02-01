@@ -20,6 +20,8 @@ function displayWeatherConditions(response) {
     response.data.main.temp
   );
   document.querySelector("#currentTimeJs").innerHTML = response.data.timezone;
+  
+  document.getElementById("weatherIconJs").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 function cityApi(newCityName) {
