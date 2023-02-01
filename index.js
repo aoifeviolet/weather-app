@@ -19,8 +19,12 @@ function displayWeatherConditions(response) {
   document.querySelector("#degreeJs").innerHTML = Math.round(
     response.data.main.temp
   );
-  document.querySelector("#currentTimeJs").innerHTML = response.data.timezone;
-  
+ document.querySelector("#windDesJs").innerHTML = Math.round(response.data.wind.speed)
+  document.querySelector("#humidityDesJs").innerHTML = response.data.main.humidity;
+ 
+
+
+
   document.getElementById("weatherIconJs").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
