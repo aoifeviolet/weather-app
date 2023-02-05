@@ -160,7 +160,8 @@ h4 {
 
 
 
-footer {color: #8ec5fc;
-text-align: center;}
+.footer {color: #8ec5fc;
+    text-align: center;
+}
 
 .footer_link {color: #dcadff;}
