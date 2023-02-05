@@ -9,8 +9,7 @@ let minuets = now.getMinutes();
 let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 let day = days[now.getDay()];
 
-currentTime.innerHTML = `${hour}:${minuets}`;
-currentDate.innerHTML = `${day}`;
+currentDateandTime.innerHTML = `${day} ${hour}:${minuets}`;
 
 function displayWeatherConditions(response) {
   console.log(response);
