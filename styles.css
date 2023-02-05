@@ -158,9 +158,11 @@ h4 {
     transition: all 150ms ease-in-out;
 }
 
+footer{
+background-color: aqua;}
 
+a{text-align: center;}
 
-footer {color: #8ec5fc;
-text-align: center;}
+.footer_link{color: #e0c3fc;
+background-color: red;}
 
-.footer_link {color: #dcadff;}

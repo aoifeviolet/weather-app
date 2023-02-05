@@ -1,16 +1,23 @@
-let currentTime = document.querySelector("#currentTimeJs");
-let currentDate = document.querySelector("#currentDateJs");
+function formatDate(timestamp) {
+  let currentDate = document.querySelector("#dateJs");
 
-let now = new Date();
+  let now = new Date();
 
-let hour = now.getHours();
-let minuets = now.getMinutes();
+  let hour = now.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
 
-let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-let day = days[now.getDay()];
+  let minuets = now.getMinutes();
+  if (minuets < 10) {
+    minuets = `0${minuets}`;
+  }
 
-currentTime.innerHTML = `${hour}:${minuets}`;
-currentDate.innerHTML = `${day}`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[now.getDay()];
+
+  return `${day} ${hour}:${minuets}`;
+}
 
 function displayWeatherConditions(response) {
   console.log(response);
@@ -19,13 +26,21 @@ function displayWeatherConditions(response) {
   document.querySelector("#degreeJs").innerHTML = Math.round(
     response.data.main.temp
   );
- document.querySelector("#windDesJs").innerHTML = Math.round(response.data.wind.speed)
-  document.querySelector("#humidityDesJs").innerHTML = response.data.main.humidity;
- 
+  document.querySelector("#windDesJs").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  document.querySelector("#humidityDesJs").innerHTML =
+    response.data.main.humidity;
+  document
+    .getElementById("weatherIconJs")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
 
-
-
-  document.getElementById("weatherIconJs").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  document.querySelector("#dateJs").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
 }
 
 function cityApi(newCityName) {
