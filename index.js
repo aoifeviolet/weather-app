@@ -29,6 +29,8 @@ function displayWeatherConditions(response) {
   document.querySelector("#windDesJs").innerHTML = Math.round(
     response.data.wind.speed
   );
+
+  document.querySelector("#degreeJs").innerHTML = Math.round(5 / 9 * (response.data.main.temp - 32))
   document.querySelector("#humidityDesJs").innerHTML =
     response.data.main.humidity;
   document
