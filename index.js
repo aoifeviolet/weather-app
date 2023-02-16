@@ -19,6 +19,28 @@ function formatDate(timestamp) {
   return `${day} ${hour}:${minuets}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather_forecast")
+
+  let forecastHTML = `<div class="row row_one">`;
+  
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+  days.forEach(function (day){forecastHTML = forecastHTML + `
+          <div class="col col_one">
+            <i class="fa-solid fa-cloud"></i>
+            <br />
+            <div class="temp">20°</div>
+            ${day}
+          </div>`;})
+
+  
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
+
 function displayWeatherConditions(response) {
   console.log(response);
   document.querySelector("#cityNameJs").innerHTML = response.data.name;
@@ -43,6 +65,7 @@ function displayWeatherConditions(response) {
   document.querySelector("#dateJs").innerHTML = formatDate(
     response.data.dt * 1000
   );
+  
 }
 
 function cityApi(newCityName) {
